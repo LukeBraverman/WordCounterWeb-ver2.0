@@ -15,8 +15,14 @@ public class AddWordController {
 
     @PostMapping(path = "/AddWord")
     public ModelAndView addWordToDatabse(@RequestParam(value = "wordToAdd") String wordToAdd) {
-        wordService.addWord(wordToAdd);
 
-        //ADD VIEWS
+        try {
+            wordService.addWord(wordToAdd);
+
+            //CREATE VIEW
+        } catch (IllegalStateException e) {
+            //ADD VIEWS
+        }
+
     }
 }

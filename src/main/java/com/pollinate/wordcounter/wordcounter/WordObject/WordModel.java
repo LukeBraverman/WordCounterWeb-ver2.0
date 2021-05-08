@@ -35,6 +35,10 @@ public class WordModel {
         return frequency;
     }
 
+    public void setFrequency(int frequency) {
+        this.frequency = frequency;
+    }
+
     @Override
     public String toString() {
         return "WordModel{" +
