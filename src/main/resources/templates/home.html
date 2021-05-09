@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h3>Welcome to the Word Counter Bank!</h3>
+
+<form action="AddWord" method="post">
+    WordToAdd <input type="text" name="wordToAdd">
+    <input type="submit">
+</form>
+<br>
+<br>
+<form action="FindWord" method="get">
+    wordToFind <input type="text" name="wordToFind">
+    <input type="submit">
+</form>
+<br>
+<br>
+
+</body>
+</html>
