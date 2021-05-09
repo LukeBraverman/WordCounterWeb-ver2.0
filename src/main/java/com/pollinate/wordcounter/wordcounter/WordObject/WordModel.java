@@ -3,20 +3,14 @@ package com.pollinate.wordcounter.wordcounter.WordObject;
 import javax.persistence.*;
 
 @Entity
+@Table(name="word_model")
 public class WordModel {
     @Id
+
     private String word;
 
-    @SequenceGenerator(
-            name = "frequency_initial_value",
-            sequenceName = "frequency_initial_value",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "frequency_initial_value"
-    )
-    private  int frequency;
+
+    private  int frequency =1;
 
 
     public WordModel(String word) {
@@ -37,6 +31,10 @@ public class WordModel {
 
     public void setFrequency(int frequency) {
         this.frequency = frequency;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package com.pollinate.wordcounter.wordcounter.WordObject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class WordService implements Translator {
+    @Autowired
     private WordRepositry wordRepositry;
     private WordModel word;
 
@@ -22,7 +24,7 @@ public class WordService implements Translator {
         word = new WordModel(wordToAdd);
 
         try {
-            word = wordRepositry.findById(wordToAdd).orElse(new WordModel(""));
+            word = wordRepositry.findById(word.getWord()).orElse(new WordModel(""));
             if (word.getWord().equals("")){
                 throw new IllegalStateException("wordNotInDatabase");
             }
@@ -31,6 +33,7 @@ public class WordService implements Translator {
             word.setFrequency(currentFrequency);
             wordRepositry.save(word);
         }catch (IllegalStateException e) {
+            word.setWord(wordToAdd);
             wordRepositry.save(word);
         }
 
