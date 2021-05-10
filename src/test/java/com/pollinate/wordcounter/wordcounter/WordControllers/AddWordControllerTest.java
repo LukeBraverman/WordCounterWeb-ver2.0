@@ -56,10 +56,26 @@ public class AddWordControllerTest {
         //then
         verify(wordService,times(1)).addWord(anyString());
 
+    }
 
 
+    @Test
+    public void AddWordControllerTest_GivenInValidWord_ThenXXXX() {
+        //given
+
+        String wordToPass = "Luke!";
+
+
+        //when
+        Mockito.doThrow(IllegalStateException.class).when(wordService).addWord(wordToPass);
+        addWordControllerTest.addWordToDatabse(wordToPass);
+
+        //then
+        verify(wordService,times(1)).addWord(anyString());
 
     }
+
+
 
 
 }
